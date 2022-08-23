@@ -1,7 +1,7 @@
 /**
  * Study about
  * 
- * filter
+ * Filter : It is used to create a new array form a given array based on a specified condition.
  *
  */ 
 

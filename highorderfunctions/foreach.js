@@ -1,7 +1,7 @@
 /**
  * Study about
  * 
- * foreach
+ * foreach: It calls a function for each element in an array. It does not return anything.
  *
  */
 

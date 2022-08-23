@@ -1,7 +1,7 @@
 /**
  * Study about
  * 
- * Sort
+ * Sort: It sorts the elements of an array. It returns 1 or -1.
  *
  */
 

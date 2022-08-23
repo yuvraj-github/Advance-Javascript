@@ -1,7 +1,7 @@
 /**
  * Study about
  * 
- * map
+ * map: It creates a new array by calling function on each element of an array. It retrunn a new array.
  *
  */
 
