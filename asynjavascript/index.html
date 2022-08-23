@@ -1,0 +1,79 @@
+<!--
+
+  Promise:  it is a way to handle asynchronous operations. It has three states:
+    > Pending --- it is the initial state 
+    > fulfilled --- operation was completed successfully.
+    > rejected --- operation failed.
+
+ It is consumed by the following registering methods:
+
+   > then()
+   > catch()
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asyn Javascript</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    const datas = [
+        { name: "Ajay", age: 30 },
+        { name: "Shyam", age: 32 }
+    ];
+
+    function getDatas() {
+        setTimeout(() => {
+            let result = '';
+            datas.forEach((data, index) => {
+                result += `<li>${data.name}</li>`;
+            })
+            document.body.innerHTML = result;
+        }, 1000);
+    }
+    // This is one way to handle asynchronus that is called callback() //
+
+    /**function createNewData(newData, callback) {
+        setTimeout(() => {
+            datas.push(newData);
+            callback();
+        }, 2000);
+    }     
+    createNewData({name:"Ram", age: 33}, getDatas); **/
+
+    //  This is another way to handle promise.
+    function createNewData(newData) {
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                datas.push(newData);
+                let error = false;
+                if (!error) {
+                    resolve();
+                } else {
+                    reject('Something went wrong.   ');
+                }
+            }, 2000);
+        })
+    }
+    // By using then and catch.  
+    //createNewData({name:"Ram", age: 33}).then(getDatas).catch(err => console.log(err)) ;
+
+
+    /* By using asyn and await.*/
+    async function insertData() {
+        await createNewData({ name: "Ram", age: 33 });
+        getDatas();
+    }
+    insertData();
+</script>
+
+</html>
